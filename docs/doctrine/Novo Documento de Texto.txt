@@ -1,0 +1,61 @@
+        "doctrine/dbal": "2.2.*",
+		"doctrine/orm": "2.3.5"
+
+
+php -r "phpinfo();" | grep "PDO drivers"
+
+------------------------------------------------------------------------------
+
+$conn->beginTransaction();
+try{
+    // do stuff
+    $conn->commit();
+} catch(Exception $e) {
+    $conn->rollback();
+    throw $e;
+}
+
+OU
+
+<?php
+$conn->transactional(function($conn) {
+    // do stuff
+});
+
+<?php
+Connection::TRANSACTION_READ_UNCOMMITTED
+Connection::TRANSACTION_READ_COMMITTED
+Connection::TRANSACTION_REPEATABLE_READ
+Connection::TRANSACTION_SERIALIZABLE
+
+
+http://doctrine-dbal.readthedocs.org/en/latest/reference/transactions.html
+------------------------------------------------------------------------------
+
+Using multiple databases¶
+
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'dbs.options' => array (
+        'mysql_read' => array(
+            'driver'    => 'pdo_mysql',
+            'host'      => 'mysql_read.someplace.tld',
+            'dbname'    => 'my_database',
+            'user'      => 'my_username',
+            'password'  => 'my_password',
+            'charset'   => 'utf8',
+        ),
+        'mysql_write' => array(
+            'driver'    => 'pdo_mysql',
+            'host'      => 'mysql_write.someplace.tld',
+            'dbname'    => 'my_database',
+            'user'      => 'my_username',
+            'password'  => 'my_password',
+            'charset'   => 'utf8',
+        ),
+    ),
+));
+
+$app['db']->fetchAll('SELECT * FROM table');
+
+$app['dbs']['mysql_read']->fetchAll('SELECT * FROM table');
+http://silex.sensiolabs.org/doc/providers/doctrine.html
