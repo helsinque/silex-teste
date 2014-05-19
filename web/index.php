@@ -18,33 +18,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
           'password'  => 'senha123',
           'charset'   => 'utf8',
         ),
-        'core' => array(
-          'driver'   => 'pdo_sqlsrv',
-          'path'     => __DIR__.'/app.db',
-          'host'      => 'localhost',
-          'dbname'    => 'COB_core',
-          'user'      => 'sa',
-          'password'  => 'senha123',
-          'charset'   => 'utf8',
-        ),
-        'drive' => array(
-          'driver'   => 'pdo_sqlsrv',
-          'path'     => __DIR__.'/app.db',
-          'host'      => 'localhost',
-          'dbname'    => 'COB_cobway',
-          'user'      => 'sa',
-          'password'  => 'senha123',
-          'charset'   => 'utf8',
-        ),
-        'bpms' => array(
-          'driver'   => 'pdo_sqlsrv',
-          'path'     => __DIR__.'/app.db',
-          'host'      => 'localhost',
-          'dbname'    => 'COB_bpms',
-          'user'      => 'sa',
-          'password'  => 'senha123',
-          'charset'   => 'utf8',
-        ),
+        
     ),
 ));
 /*
