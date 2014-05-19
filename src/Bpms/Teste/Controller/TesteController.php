@@ -29,5 +29,15 @@ class TesteController
 		return $arr;
 		//return $this->request->query->all();
 	}
+
+	function carregaUsuario($id){
+		$mapper = new \Bpms\Teste\DataMapper\UsuariosMapper($this->app['dbs']['teste']);
+
+		$res = $mapper->loadById($id);
+		//return 'asd';
+		$arr['Número do cara'] = $res->getId();
+		$arr['Nome do individuo'] = $res->getNome();
+		return $arr;
+	}
 	
 }

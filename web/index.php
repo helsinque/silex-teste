@@ -68,6 +68,13 @@ $app->get( '/', function (Application $app, Request $bar) {
            return $app->json( $resp );
 });
 
+//Funciona com o TESTECONSTROLLER
+$app->get( '/load/{id}', function (Application $app, Request $bar, $id) {
+    $class = new Bpms\Teste\Controller\TesteController($app, $bar);
+    $resp = $class->carregaUsuario($id);
+    return $app->json( $resp );
+});
+
 
 
 
