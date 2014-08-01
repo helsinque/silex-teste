@@ -6,7 +6,10 @@ class DepartmentEntity
     private $idDepartamento;
     private $nomeDepartamento;
    
-    
+     public function convertToArray()
+    {
+        return get_object_vars($this);
+    }
     public function getIdDepartamento() 
     {
         return $this->idDepartamento;

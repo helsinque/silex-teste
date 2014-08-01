@@ -1,0 +1,64 @@
+{% extends 'Core/layout.html.twig' %}
+{% set active = 'gerenciarUsuarios' %}
+
+{% block content %}
+
+
+<div class="row-fluid">
+  <div class="span12">
+    <h3 class="titulo"><span class="batch primary"></span>&nbsp;Listagem de Departamentos</h3>
+    <div class="row-fluid">
+    <div class="alert alert-success" id="div_alert" style="display:none;">
+    </div>
+    </div>
+    <form role="form"  name="frm_filtro" id="frm_filtro">
+      <input type="hidden" value="" name="cod_usuario" id="cod_usuario">
+      <div class="alinha">
+        <label>Departamento</label>
+        <input class="form-control" type="text" name="departamento" id="departamento" value="" size="30" style="width:180px;">
+      </div> 
+      <div class="alinha">
+        <label for="status">Código departamento:</label>
+        <select name="status" id="codigo" class="form-control">
+          <option value="0" selected="selected">-- Selecione --</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div> 
+      <div class="alinha">
+        <label>&nbsp;</label>
+        <button type="button" class="btn btn-default form-control" onclick="search();"><i class=" icon-search"></i> Filtrar</button>
+      </div>
+    </form>
+  </div>
+</div>  
+
+<div id="list_container"></div>
+<script>
+
+function search(){
+   $.ajax({
+      type: "get",
+      url: "/departments/crud/createList",
+      data: $('#frm_filtro').serialize(),
+      success: function(data)
+      {
+       $('#list_container').html(data);
+      },
+      error: function(data) {
+       $('#list_container').html(data.responseText);
+      }
+    });
+}
+
+function AddDepartments(){
+
+  window.location.href='/departments/crud/save';
+
+}
+
+</script>
+
+
+{% endblock %}

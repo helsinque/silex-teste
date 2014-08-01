@@ -1,0 +1,43 @@
+<div class="tab-content">
+<div class="tab-pane active" id="todas">
+<table class="table table-striped">
+<thead>
+<tr class="filter">
+<th align="left" width="14%">Nome departamento</th>
+<th align="left" width="14%"><b></b>Código departamento</th>
+</tr>
+</thead>
+<tbody>
+  {% for DepartmentEntity in departamentos %}
+  <tr>
+  <td class="left">{{ DepartmentEntity.nomeDepartamento }}</td>
+  <td class="left">{{ DepartmentEntity.idDepartamento }}</td>
+  </tr>
+  {% endfor %}
+
+</tbody>
+</table>
+<div style="text-align: center;">
+    <div class="breadcrumb" >
+<p class="pull-left pagination-leg">Registros encontrados: 5 (exibindo de 1 a 5)</p>
+
+    <ul class="pull-right pagination pagination-sm">
+  <li><a href="#">&laquo;</a></li>
+  <li class="active"><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>
+    <div class="clearfix"></div>
+</div>
+</div>
+
+</div>
+</div>
+<div class="clearfix"></div>
+<button type="button" class="pull-right btn btn-primary" onclick="AddDepartments();">Novo</button>
+
+<script>
+
