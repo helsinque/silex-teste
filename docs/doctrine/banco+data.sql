@@ -24,8 +24,8 @@ GO
 SET IDENTITY_INSERT [dbo].[Menu] ON
 INSERT [dbo].[Menu] ([idMenu], [idMenuPai], [nomeMenu], [nomeModulo], [defaultPath]) VALUES (1, 0, N'Início', N'index', N'.')
 INSERT [dbo].[Menu] ([idMenu], [idMenuPai], [nomeMenu], [nomeModulo], [defaultPath]) VALUES (2, 0, N'Gerenciar Usuários', N'gerenciarUsuarios', N'#')
-INSERT [dbo].[Menu] ([idMenu], [idMenuPai], [nomeMenu], [nomeModulo], [defaultPath]) VALUES (3, 2, N'Departamentos', N'departments', N'departaments/crud/list')
-INSERT [dbo].[Menu] ([idMenu], [idMenuPai], [nomeMenu], [nomeModulo], [defaultPath]) VALUES (4, 2, N'Usuários', N'users', N'users/crud/new')
+INSERT [dbo].[Menu] ([idMenu], [idMenuPai], [nomeMenu], [nomeModulo], [defaultPath]) VALUES (3, 2, N'Departamentos', N'departments', N'/departaments/crud/listView')
+INSERT [dbo].[Menu] ([idMenu], [idMenuPai], [nomeMenu], [nomeModulo], [defaultPath]) VALUES (4, 2, N'Usuários', N'users', N'/users/crud/editView')
 SET IDENTITY_INSERT [dbo].[Menu] OFF
 /****** Object:  Table [dbo].[Empresas]    Script Date: 06/16/2014 20:28:50 ******/
 SET ANSI_NULLS ON
